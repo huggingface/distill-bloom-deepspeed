@@ -10,7 +10,7 @@ This repository is partially based from [BLOOM DeepSpeed repository](https://git
 
 ## Install teacher checkpoints
 
-Install the DeepSpeed teacher checkpoints from [here]() to perform fast loading as described [here](https://github.com/huggingface/transformers-bloom-inference/tree/main/bloom-inference-scripts#run)
+Install the DeepSpeed teacher checkpoints from [here]() to perform fast loading as described [here](https://github.com/huggingface/transformers-bloom-inference/tree/main/bloom-inference-scripts#run). Download them locally and follow the instructions below to run the training. 
 
 ## Roadmap
 
