@@ -41,6 +41,9 @@ def parse_args(extra_args_provider=None, defaults={}, ignore_unknown_args=False)
     # Distriubted args
     parser = _add_distributed_args(parser)
 
+    # Mixed precision args
+    parser = _add_mixed_precision_args(parser)
+
     # Parse args
     args = parser.parse_args()
 
@@ -851,4 +854,15 @@ def _add_distributed_args(parser):
         default=None,
         help="If set, affine parallel weights initialization uses CPU",
     )
+    return parser
+
+
+def _add_mixed_precision_args(parser):
+    group = parser.add_argument_group(title="mixed precision")
+
+    group.add_argument("--fp16", action="store_true", help="Run model in fp16 mode.")
+    group.add_argument(
+        "--bf16", action="store_true", help="Run model in bfloat16 mode."
+    )
+
     return parser
