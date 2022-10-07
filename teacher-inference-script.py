@@ -98,6 +98,11 @@ def generate_logits_batch(data_loader):
         # as a sanity check, I used to check that inputs are different for each rank
         inputs = inputs.to(torch.cuda.current_device())
         outputs = model(inputs).logits
+
+        # Here we leave the return statement for debugging purposes
+        # But in practice at this point we would probably call
+        # dist.barrier() and send the logits together with the input 
+        # to the student model
         return outputs
 
 
@@ -113,4 +118,3 @@ t_generate_start = time.time()
 generated = generate_logits_batch(data_loader)
 print(rank, generated.shape)
 t_generate_span = time.time() - t_generate_start
-exit()
