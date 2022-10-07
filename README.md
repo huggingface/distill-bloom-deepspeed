@@ -18,7 +18,7 @@ We highly recommend to install the teacher and student weights locally, therefor
 After installing the teacher weights, run the following command to perform inference on the teacher model. 
 
 ```
-deepspeed --num_gpus NUM_GPUS teacher-inference-script.py --name [PATH_TO_BLOOM]
+deepspeed --num_gpus NUM_GPUS teacher-inference-script.py --teacher-model-path[PATH_TO_BLOOM] --train-weighted-split-paths-path [PATH_TO_DATA] --train-iters [TRAIN_ITERS] --global-batch-size [GLOBAL_BATCH_SIZE] --eval-iters [EVAL_ITERS] --seq-length [SEQ_LEN] 
 ```
 
 #### Processing the dataset
